@@ -1,0 +1,31 @@
+--- origsrc/zeromq-2.1.11/src/signaler.cpp	2011-09-02 09:24:42.000000000 -0500
++++ src/zeromq-2.1.11/src/signaler.cpp	2011-12-20 03:04:41.292404800 -0600
+@@ -28,7 +28,7 @@
+     defined ZMQ_HAVE_OPENBSD || defined ZMQ_HAVE_SOLARIS ||\
+     defined ZMQ_HAVE_OSX || defined ZMQ_HAVE_QNXNTO ||\
+     defined ZMQ_HAVE_HPUX || defined ZMQ_HAVE_AIX ||\
+-    defined ZMQ_HAVE_NETBSD
++    defined ZMQ_HAVE_NETBSD || defined ZMQ_HAVE_CYGWIN
+ #define ZMQ_SIGNALER_WAIT_BASED_ON_POLL
+ #elif defined ZMQ_HAVE_WINDOWS || defined ZMQ_HAVE_OPENVMS
+ #define ZMQ_SIGNALER_WAIT_BASED_ON_SELECT
+--- origsrc/zeromq-2.1.11/src/zmq.cpp	2011-11-13 15:51:38.000000000 -0600
++++ src/zeromq-2.1.11/src/zmq.cpp	2011-12-20 03:04:16.585991700 -0600
+@@ -28,7 +28,7 @@
+     defined ZMQ_HAVE_OPENBSD || defined ZMQ_HAVE_SOLARIS ||\
+     defined ZMQ_HAVE_OSX || defined ZMQ_HAVE_QNXNTO ||\
+     defined ZMQ_HAVE_HPUX || defined ZMQ_HAVE_AIX ||\
+-    defined ZMQ_HAVE_NETBSD
++    defined ZMQ_HAVE_NETBSD || defined ZMQ_HAVE_CYGWIN
+ #include <poll.h>
+ #endif
+ 
+@@ -392,7 +392,7 @@ int zmq_recv (void *s_, zmq_msg_t *msg_,
+     defined ZMQ_HAVE_OPENBSD || defined ZMQ_HAVE_SOLARIS ||\
+     defined ZMQ_HAVE_OSX || defined ZMQ_HAVE_QNXNTO ||\
+     defined ZMQ_HAVE_HPUX || defined ZMQ_HAVE_AIX ||\
+-    defined ZMQ_HAVE_NETBSD
++    defined ZMQ_HAVE_NETBSD || defined ZMQ_HAVE_CYGWIN
+ #define ZMQ_POLL_BASED_ON_POLL
+ #elif defined ZMQ_HAVE_WINDOWS || defined ZMQ_HAVE_OPENVMS
+ #define ZMQ_POLL_BASED_ON_SELECT
