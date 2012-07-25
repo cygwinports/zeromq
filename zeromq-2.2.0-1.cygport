@@ -1,0 +1,22 @@
+CATEGORY="Libs"
+SUMMARY="Lightweight messaging library"
+DESCRIPTION="The 0MQ lightweight messaging kernel is a library which extends
+the standard socket interfaces with features traditionally provided by
+specialised messaging middleware products. 0MQ sockets provide an
+abstraction of asynchronous message queues, multiple messaging patterns,
+message filtering (subscriptions), seamless access to multiple transport
+protocols and more."
+HOMEPAGE="http://www.zeromq.org/"
+SRC_URI="http://download.zeromq.org/${P}.tar.gz"
+#PATCH_URI="2.1.11-cygwin.patch"
+
+PKG_NAMES="libzmq1 libzmq-devel"
+libzmq1_CONTENTS="usr/bin/cygzmq-1.dll usr/share/doc/ usr/share/man/man7/"
+libzmq1_SUMMARY="${SUMMARY} (runtime)"
+libzmq_devel_CONTENTS="usr/include/ usr/lib/ usr/share/man/man3/"
+libzmq_devel_SUMMARY="${SUMMARY} (development)"
+
+export LIBZMQ_EXTRA_LDFLAGS="-no-undefined"
+CYGCONF_ARGS="--with-poller=select"
+
+KEEP_LA_FILES="none"
