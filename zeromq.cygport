@@ -1,5 +1,5 @@
 NAME="zeromq"
-VERSION=2.2.0
+VERSION=4.1.4
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Lightweight messaging library"
@@ -13,13 +13,17 @@ HOMEPAGE="http://www.zeromq.org/"
 SRC_URI="http://download.zeromq.org/zeromq-${VERSION}.tar.gz"
 #PATCH_URI="2.1.11-cygwin.patch"
 
-PKG_NAMES="libzmq1 libzmq-devel"
-libzmq1_CONTENTS="usr/bin/cygzmq-1.dll usr/share/doc/ usr/share/man/man7/"
-libzmq1_SUMMARY="${SUMMARY} (runtime)"
-libzmq_devel_CONTENTS="usr/include/ usr/lib/ usr/share/man/man3/"
+PKG_NAMES="libzmq5 libzmq-devel libzmq-doc"
+libzmq5_CONTENTS="usr/bin/cygzmq-5.dll usr/share/doc/"
+libzmq5_SUMMARY="${SUMMARY} (runtime)"
+libzmq_devel_CONTENTS="usr/include/ usr/lib/"
 libzmq_devel_SUMMARY="${SUMMARY} (development)"
+libzmq_doc_CATEGORY="Doc"
+libzmq_doc_SUMMARY="${SUMMARY} (documentation)"
+libzmq_doc_CONTENTS="usr/share/man/man[37]/"
 
 export LIBZMQ_EXTRA_LDFLAGS="-no-undefined"
-CYGCONF_ARGS="--with-poller=select"
+#CPPFLAGS+=" -DFD_SETSIZE=1024"
+CYGCONF_ARGS="--with-poller=poll --with-libsodium"
 
 KEEP_LA_FILES="none"
