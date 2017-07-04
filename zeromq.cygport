@@ -1,5 +1,5 @@
 NAME="zeromq"
-VERSION=4.1.4
+VERSION=4.1.6
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Lightweight messaging library"
@@ -10,7 +10,8 @@ abstraction of asynchronous message queues, multiple messaging patterns,
 message filtering (subscriptions), seamless access to multiple transport
 protocols and more."
 HOMEPAGE="http://www.zeromq.org/"
-SRC_URI="http://download.zeromq.org/zeromq-${VERSION}.tar.gz"
+#SRC_URI="https://github.com/zeromq/libzmq/releases/download/v${VERSION}/zeromq-${VERSION}.tar.gz"
+SRC_URI="https://github.com/zeromq/zeromq4-1/releases/download/v${VERSION}/zeromq-${VERSION}.tar.gz"
 #PATCH_URI="2.1.11-cygwin.patch"
 
 PKG_NAMES="libzmq5 libzmq-devel libzmq-doc"
@@ -25,5 +26,3 @@ libzmq_doc_CONTENTS="usr/share/man/man[37]/"
 export LIBZMQ_EXTRA_LDFLAGS="-no-undefined"
 #CPPFLAGS+=" -DFD_SETSIZE=1024"
 CYGCONF_ARGS="--with-poller=poll --with-libsodium"
-
-KEEP_LA_FILES="none"
