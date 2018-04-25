@@ -1,0 +1,10 @@
+--- origsrc/zeromq-4.2.3/Makefile.am	2017-12-13 07:37:08.000000000 -0600
++++ src/zeromq-4.2.3/Makefile.am	2018-04-24 13:17:32.920201400 -0500
+@@ -266,7 +266,6 @@ else
+ if ON_CYGWIN
+ src_libzmq_la_LDFLAGS = \
+ 	-no-undefined \
+-	-avoid-version \
+ 	-version-info @LTVER@ \
+ 	@LIBZMQ_EXTRA_LDFLAGS@
+ else
